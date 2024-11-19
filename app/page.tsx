@@ -6,7 +6,7 @@ import { Logo } from '@/components/Logo';
 import { Footer } from '@/components/Footer';
 import { EasterEgg } from '@/components/EasterEgg';
 import { useCountdown } from '@/hooks/useCountdown';
-
+import { ContactUs } from '@/components/contactUs';
 export default function Home() {
   const [logoClicks, setLogoClicks] = useState(0);
   const [easterEggs, setEasterEggs] = useState<
@@ -46,13 +46,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-black to-zinc-900 text-white flex flex-col items-center justify-center p-8 select-none">
-      <Logo onClick={handleLogoClick} />
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto mb-16">
-        <CountdownItem value={countdown.days} label="Days" />
-        <CountdownItem value={countdown.hours} label="Hours" />
-        <CountdownItem value={countdown.minutes} label="Minutes" />
-        <CountdownItem value={countdown.seconds} label="Seconds" />
+      <div >
+        <Logo onClick={handleLogoClick} />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto mb-16">
+          <CountdownItem value={countdown.days} label="Days" />
+          <CountdownItem value={countdown.hours} label="Hours" />
+          <CountdownItem value={countdown.minutes} label="Minutes" />
+          <CountdownItem value={countdown.seconds} label="Seconds" />
+        </div>
       </div>
 
       {easterEggs.map((egg) => (
@@ -62,7 +63,7 @@ export default function Home() {
           imageUrl="wiwi.png"
         />
       ))}
-
+      <ContactUs />
       <Footer />
     </main>
   );
