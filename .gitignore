@@ -36,3 +36,12 @@ next-env.d.ts
 
 # bolt
 .bolt.env
+
+#.env
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.staging
+.env.joss
