@@ -1,12 +1,13 @@
 'use client';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 export function ContactUs() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [captchaValue, setCaptchaValue] = useState(null);
+  const [captchaSize, setCaptchaSize] = useState('normal');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -14,15 +15,32 @@ export function ContactUs() {
     message: '',
   });
 
-  const handleCaptchaChange = (value) => {
+  useEffect(() => {
+    const updateCaptchaSize = () => {
+      if (window.innerWidth < 768) {
+        setCaptchaSize('compact');
+      } else {
+        setCaptchaSize('normal');
+      }
+    };
+
+    updateCaptchaSize();
+    window.addEventListener('resize', updateCaptchaSize);
+
+    return () => {
+      window.removeEventListener('resize', updateCaptchaSize);
+    };
+  }, []);
+
+  const handleCaptchaChange = (value: string | null) => {
     setCaptchaValue(value);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!captchaValue) {
       alert('Please complete the CAPTCHA');
@@ -166,6 +184,7 @@ export function ContactUs() {
             <ReCAPTCHA
               sitekey="6Lf6rYMqAAAAANg4Nb2iB3lH03IHO6RrnZVF6LCJ"
               onChange={handleCaptchaChange}
+              size={captchaSize}
             />
           </div>
 

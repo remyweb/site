@@ -63,14 +63,13 @@ export function OurMission() {
         </h2>
 
         <div className="relative max-w-5xl mx-auto">
-          <div className="grid grid-cols-3 grid-rows-3 gap-6 md:gap-12 items-center justify-center">
-            <div></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-6 md:gap-12 items-center justify-center">
+            <div className="hidden md:block"></div>
             {renderCard(cards[0])}
-            <div></div>
+            <div className="hidden md:block"></div>
             {renderCard(cards[1])}
             <div className="flex justify-center items-center">
               <div className="relative w-48 h-48 md:w-64 md:h-64">
-                {/* Globe SVG */}
                 <motion.svg
                   width="100%"
                   height="100%"
@@ -81,7 +80,7 @@ export function OurMission() {
                     rotateZ: 360,
                   }}
                   transition={{
-                    duration: 200,
+                    duration: 50,
                     ease: "linear",
                     repeat: Infinity,
                   }}
@@ -98,9 +97,9 @@ export function OurMission() {
             </div>
             {renderCard(cards[2])}
 
-            <div></div>
+            <div className="hidden md:block"></div>
             {renderCard(cards[3])}
-            <div></div>
+            <div className="hidden md:block"></div>
           </div>
         </div>
       </motion.div>

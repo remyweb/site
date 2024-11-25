@@ -11,6 +11,8 @@ import { OurMission } from '@/components/OurMission';
 import { EasterEgg } from '@/components/EasterEgg';
 import { useCountdown } from '@/hooks/useCountdown';
 import { ContactUs } from '@/components/contactUs';
+import { ChatPopUp } from "@/components/ui/popup";
+
 export default function Home() {
   const [logoClicks, setLogoClicks] = useState(0);
   const [easterEggs, setEasterEggs] = useState<
@@ -66,6 +68,7 @@ export default function Home() {
     
       <ContactUs />
       <InstagramPuzzleGame />
+      <ChatPopUp/>
       <Footer />
     </main>
   );
