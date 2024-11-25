@@ -8,8 +8,7 @@ const MAX_REQUESTS_PER_WINDOW = 5;
 
 export async function POST(request: NextRequest) {
     try {
-        const clientIp =
-            request.headers.get('x-forwarded-for') || request.ip || 'unknown';
+        const clientIp = request.headers.get('x-forwarded-for')?.split(',')[0] || 'unknown';
 
         const currentTime = Date.now();
         const rateLimitData = rateLimitMap.get(clientIp) || {
@@ -67,6 +66,9 @@ export async function POST(request: NextRequest) {
 
 async function validateHuman(token: string) {
     const secret = process.env.RECAPTCHA_SECRET_KEY;
+    if (!secret) {
+        throw new Error('RECAPTCHA_SECRET_KEY is not set in environment variables');
+    }
     const response = await fetch(
         `https://www.google.com/recaptcha/api/siteverify`,
         {
@@ -82,6 +84,7 @@ async function validateHuman(token: string) {
     const data = await response.json();
     return data.success;
 }
+
 async function sendEmail({
     firstName,
     lastName,

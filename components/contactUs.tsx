@@ -4,10 +4,12 @@ import { Send } from 'lucide-react';
 import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
+type CaptchaSize = 'compact' | 'normal' | 'invisible';
+
 export function ContactUs() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [captchaValue, setCaptchaValue] = useState(null);
-  const [captchaSize, setCaptchaSize] = useState('normal');
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const [captchaSize, setCaptchaSize] = useState<CaptchaSize>('normal');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',

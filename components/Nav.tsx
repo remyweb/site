@@ -6,13 +6,10 @@ import { cn } from "@/lib/utils";
 import { Logo } from '@/components/Logo';
 import { useState } from "react";
 import { useMediaQuery } from 'react-responsive';
+
 export function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
-
-  // const logoScale = useTransform(scrollY, [0, 180], [3.0, 0.8]);
-  // const logoY = useTransform(scrollY, [0, 180], [80, 0]);
-  
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -40,7 +37,7 @@ export function Nav() {
               style={{ scale: logoScale, y: logoY }}
               className="flex items-center gap-1.5 md:gap-2 origin-center absolute"
             >
-              <Logo style={{ scale: logoScale, y: logoY }}/>
+              <Logo onClick={() => {}} />
             </motion.div>
             
             <motion.nav

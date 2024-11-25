@@ -27,7 +27,7 @@ export function InstagramPuzzleGame() {
   }, []);
 
   const shufflePieces = () => {
-    const shuffled = [...Array(9).keys()].sort(() => Math.random() - 0.5);
+    const shuffled = Array.from(Array(9).keys()).sort(() => Math.random() - 0.5);
     setPieces(shuffled);
     setSolved(false);
     setMoves(0);
