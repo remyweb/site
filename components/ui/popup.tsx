@@ -15,7 +15,7 @@ const PreLoader = () => (
       className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center bg-[#AEFF00] dark:bg-[#6aa603]"
     >
       <div className="w-8 h-8">
-        <Image src="/Bruno.svg" alt="Bruno" width={32} height={32} />
+        <Image src="/bruno.svg" alt="Bruno" width={32} height={32} />
       </div>
     </div>
     <div className="ml-2 p-2 rounded-lg flex flex-col gap-1">
@@ -145,7 +145,7 @@ export function ChatPopUp() {
 
   return (
     <>
-      <div className="fixed bottom-4 right-4">
+      <div className="fixed bottom-4 right-4 z-20">
         <button
           onClick={togglePopup}
           className="relative overflow-hidden px-4 py-2 rounded-full bg-gradient-to-br from-[#90CA03] to-green-800 text-white font-semibold text-sm shadow-md transform hover:scale-105 active:scale-95 transition-all duration-200 ease-out group"
@@ -159,7 +159,7 @@ export function ChatPopUp() {
         {isOpen && (
           <>
             <motion.div
-              className="fixed inset-0 bg-black bg-opacity-30"
+              className="fixed inset-0 bg-black bg-opacity-30 z-10"
               onClick={togglePopup}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -167,7 +167,7 @@ export function ChatPopUp() {
             />
 
             <motion.div
-              className="fixed bottom-0 md:bottom-4 md:right-4 w-full md:w-[400px] h-[70vh] md:h-[500px] bg-card border rounded-t-2xl md:rounded-xl flex flex-col justify-between overflow-hidden bg-dark text-foreground"
+              className="fixed bottom-0 md:bottom-4 md:right-4 w-full md:w-[400px] h-[70vh] md:h-[500px] bg-card border rounded-t-2xl md:rounded-xl flex flex-col justify-between overflow-hidden bg-dark text-foreground z-20"
               initial={{ translateY: "100%" }}
               animate={{ translateY: 0 }}
               exit={{ translateY: "100%" }}
@@ -183,7 +183,7 @@ export function ChatPopUp() {
                     <div className="p-5 rounded-full flex items-center justify-center bg-[#AEFF00] dark:bg-[#6aa603]">
                       <div className="w-10 h-10">
                         <Image
-                          src="/Bruno.svg"
+                          src="/bruno.svg"
                           alt="Bruno"
                           width={40}
                           height={40}

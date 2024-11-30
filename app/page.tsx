@@ -12,13 +12,11 @@ import { EasterEgg } from '@/components/EasterEgg';
 import { useCountdown } from '@/hooks/useCountdown';
 import { ContactUs } from '@/components/contactUs';
 import { ChatPopUp } from "@/components/ui/popup";
+import { Logo } from '@/components/Logo';
 
 export default function Home() {
   const [logoClicks, setLogoClicks] = useState(0);
-  const [easterEggs, setEasterEggs] = useState<
-    Array<{ id: string; x: number; y: number }>
-  >([]);
-
+  const [easterEggs, setEasterEggs] = useState<Array<{ id: string; x: number; y: number }>>([]);
   const countdown = useCountdown('2024-12-05T16:39:00');
 
   const handleLogoClick = useCallback(() => {
@@ -29,21 +27,16 @@ export default function Home() {
         const newEasterEggs = [...Array(3)].map((_, index) => {
           const padding = 100; // Padding from window edges
           const x = Math.random() * (window.innerWidth - 2 * padding) + padding;
-          const y =
-            Math.random() * (window.innerHeight - 2 * padding) + padding;
-
+          const y = Math.random() * (window.innerHeight - 2 * padding) + padding;
           return {
             id: `${timestamp}-${index}-${Math.random()}`,
             x,
             y,
           };
         });
-
         setEasterEggs((prev) => [...prev, ...newEasterEggs]);
         setTimeout(() => {
-          setEasterEggs((eggs) =>
-            eggs.filter((egg) => !newEasterEggs.includes(egg))
-          );
+          setEasterEggs((eggs) => eggs.filter((egg) => !newEasterEggs.includes(egg)));
         }, 2000);
       }
       return newCount;
@@ -56,19 +49,13 @@ export default function Home() {
       <Hero />
       <Team />
       <OurMission />
-
-      {/* A REVOIR */}
+      <Logo onClick={handleLogoClick} />
       {easterEggs.map((egg) => (
-        <EasterEgg
-          key={egg.id}
-          position={{ x: egg.x, y: egg.y }}
-          imageUrl="wiwi.png"
-        />
+        <EasterEgg key={egg.id} position={{ x: egg.x, y: egg.y }} imageUrl="wiwi.png" />
       ))}
-    
       <ContactUs />
       <InstagramPuzzleGame />
-      <ChatPopUp/>
+      <ChatPopUp />
       <Footer />
     </main>
   );

@@ -21,10 +21,8 @@ export function ChatMessage({ role = "assistant", content }: Message) {
           className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center"
           style={{ backgroundColor: "#AEFF00" }}
         >
-          {/* Bruno's SVG */}
           <div className="w-8 h-8">
-            {/* Insert Bruno's SVG here */}
-            <Image src="/Bruno.svg" alt="Bruno" width={32} height={32} />
+            <Image src="/bruno.svg" alt="Bruno" width={32} height={32} />
           </div>
         </div>
       )}
