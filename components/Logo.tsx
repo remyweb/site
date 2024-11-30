@@ -1,8 +1,7 @@
 'use client';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Confetti, ConfettiRef } from '@/components/confetti';
 
 interface LogoProps {
   onClick: () => void;
@@ -11,15 +10,13 @@ interface LogoProps {
 export function Logo({ onClick }: LogoProps) {
   const [clicks, setClicks] = useState(0);
   const [showImage, setShowImage] = useState(false);
-  const confettiRef = useRef<ConfettiRef>(null);
 
   const handleLogoClick = useCallback(() => {
     setClicks((prev) => {
       const newCount = prev + 1;
       console.log(`Logo clicked ${newCount} times`);
       if (newCount % 3 === 0) {
-        console.log('Triggering confetti and showing Easter Egg');
-        confettiRef.current?.firework();
+        console.log('Showing Easter Egg');
         setShowImage(true);
         setTimeout(() => setShowImage(false), 2000);
       }
@@ -37,7 +34,6 @@ export function Logo({ onClick }: LogoProps) {
       >
         <Image src="/sws.svg" alt="SWS" width={50} height={50} />
       </motion.div>
-      <Confetti ref={confettiRef} className="fixed inset-0 w-full h-full" />
       {showImage && (
         <motion.div
           initial={{ scale: 0 }}

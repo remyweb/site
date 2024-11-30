@@ -49,7 +49,10 @@ export default function Home() {
       <Hero />
       <Team />
       <OurMission />
-      
+      <Logo onClick={handleLogoClick} />
+      {easterEggs.map((egg) => (
+        <EasterEgg key={egg.id} position={{ x: egg.x, y: egg.y }} imageUrl="wiwi.png" />
+      ))}
       <ContactUs />
       <InstagramPuzzleGame />
       <ChatPopUp />
