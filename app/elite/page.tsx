@@ -2,10 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { TipCard } from '@/components/ui/tip-card';
-import { PDFDownloadButton } from '@/components/pdf-generator';
+import dynamic from 'next/dynamic';
 import { codingTips } from '@/lib/tips';
 import { Terminal } from 'lucide-react';
 import { MatrixBackground } from '@/components/matrix-background';
+
+const PDFDownloadButton = dynamic(() => import('@/components/pdf-generator').then(mod => mod.PDFDownloadButton), { ssr: false });
 
 export default function Home() {
   return (
@@ -31,7 +33,7 @@ export default function Home() {
               SWS ELITE
             </h1>
             <p className="text-gray-400 font-mono text-center max-w-2xl px-4 sm:px-0">
-              Conseils d'experts SWS pour dominer la compétition. <br /> Téléchargez notre guide
+              Conseils d&apos;experts SWS pour dominer la compétition. <br /> Téléchargez notre guide
               et élevez votre niveau.
             </p>
           </div>

@@ -11,7 +11,6 @@ import {
   BlobProvider,
 } from "@react-pdf/renderer";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
 import { codingTips } from "@/lib/tips";
 
 const styles = StyleSheet.create({
@@ -85,18 +84,18 @@ const PDFDocument = () => (
 );
 
 export function PDFDownloadButton() {
-    return (
-      <BlobProvider document={<PDFDocument />}>
-        {({ url, loading }) => (
-          <a href={url ?? undefined} download="conseils-hackathon.pdf">
-            <Button
-              disabled={loading}
-              className="bg-[#90CA03] hover:bg-[#90CA03]/80 text-black font-mono transition-all duration-300"
-            >
-              {loading ? 'Chargement du PDF...' : 'Télécharger le PDF'}
-            </Button>
-          </a>
-        )}
-      </BlobProvider>
-    );
-  }
+  return (
+    <BlobProvider document={<PDFDocument />}>
+      {({ url, loading }) => (
+        <a href={url ?? undefined} download="conseils-hackathon.pdf">
+          <Button
+            disabled={loading}
+            className="bg-[#90CA03] hover:bg-[#90CA03]/80 text-black font-mono transition-all duration-300"
+          >
+            {loading ? 'Chargement du PDF...' : 'Télécharger le PDF'}
+          </Button>
+        </a>
+      )}
+    </BlobProvider>
+  );
+}
