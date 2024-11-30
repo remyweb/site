@@ -142,4 +142,37 @@ body {
   }
 }
 
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.matrix-rain {
+  position: absolute;
+  color: #90CA03;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  animation: matrix-rain 8s linear infinite;
+  opacity: 0;
+  text-shadow: 0 0 8px #90CA03;
+}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
