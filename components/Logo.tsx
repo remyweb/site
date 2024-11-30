@@ -19,7 +19,7 @@ export function Logo({ onClick }: LogoProps) {
       console.log(`Logo clicked ${newCount} times`);
       if (newCount % 3 === 0) {
         console.log('Triggering confetti and showing Easter Egg');
-        confettiRef.current?.fire({});
+        confettiRef.current?.firework();
         setShowImage(true);
         setTimeout(() => setShowImage(false), 2000);
       }
@@ -37,7 +37,7 @@ export function Logo({ onClick }: LogoProps) {
       >
         <Image src="/sws.svg" alt="SWS" width={50} height={50} />
       </motion.div>
-      <Confetti ref={confettiRef} className="fixed left-0 top-0 w-full h-full" />
+      <Confetti ref={confettiRef} className="fixed inset-0 w-full h-full" />
       {showImage && (
         <motion.div
           initial={{ scale: 0 }}
