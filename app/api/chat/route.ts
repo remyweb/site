@@ -44,7 +44,7 @@ export async function POST(req: Request) {
     const ip =
       req.headers.get('x-forwarded-for') ||
       req.headers.get('x-real-ip') ||
-      req.socket.remoteAddress ||
+      //req.socket.remoteAddress ||
       '';
 
     if (!ip) {
