@@ -12,7 +12,6 @@ import { EasterEgg } from '@/components/EasterEgg';
 import { useCountdown } from '@/hooks/useCountdown';
 import { ContactUs } from '@/components/contactUs';
 import { ChatPopUp } from "@/components/ui/popup";
-import { Logo } from '@/components/Logo';
 
 export default function Home() {
   const [logoClicks, setLogoClicks] = useState(0);
@@ -49,10 +48,6 @@ export default function Home() {
       <Hero />
       <Team />
       <OurMission />
-      <Logo onClick={handleLogoClick} />
-      {easterEggs.map((egg) => (
-        <EasterEgg key={egg.id} position={{ x: egg.x, y: egg.y }} imageUrl="wiwi.png" />
-      ))}
       <ContactUs />
       <InstagramPuzzleGame />
       <ChatPopUp />

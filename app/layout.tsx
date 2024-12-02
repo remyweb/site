@@ -45,6 +45,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="stylesheet" href={inter.href} />
+        <script async defer src="https://cloud.umami.is/script.js" data-website-id="4bb4c7ac-3a58-49f4-8aaf-1a12a2c9cf84"></script>
+      </head>        
       <body className={inter.className}>{children}</body>
     </html>
   );
