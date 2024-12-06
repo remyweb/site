@@ -1,0 +1,3 @@
+.quizPageBackground {
+    background: linear-gradient(to bottom, var(--background-start-rgb), var(--background-end-rgb));
+  }

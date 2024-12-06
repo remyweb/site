@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: black;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-}
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -26,94 +16,28 @@ body {
   }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  @keyframes shine {
-    100% {
-      transform: translateX(100%) skew(-12deg);
-    }
-  }
-  .animate-shine {
-    animation: shine 0.85s ease;
-  }
-}
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
-
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 9%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 89.8%;
-    --input: 0 0% 85%;
-    --ring: 0 0% 76%;
-
-    --radius: 0.5rem;
-
-    /* Chart variables */
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 3%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 3%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 2%;
-
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 49%;
-
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-
+    --background: 222 47% 11%;
+    --foreground: 213 31% 91%;
+    --card: 222 47% 11%;
+    --card-foreground: 213 31% 91%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 213 31% 91%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 14.9%;
-    --input: 0 0% 16%;
-    --ring: 0 0% 83.1%;
-
-    /* Chart variables */
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9;
+    --radius: 1rem;
   }
 }
 
@@ -122,57 +46,31 @@ body {
     @apply border-border;
   }
   body {
-    @apply text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
   }
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Custom scrollbar styling */
+.history-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
-@keyframes ping {
-  75%, 100% {
-    transform: scale(2);
-    opacity: 0;
-  }
+.history-scroll::-webkit-scrollbar {
+  width: 5px;
 }
 
-@keyframes matrix-rain {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
+.history-scroll::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.matrix-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
+.history-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
 }
 
-.matrix-rain {
-  position: absolute;
-  color: #90CA03;
-  font-family: 'Courier New', monospace;
-  font-size: 14px;
-  animation: matrix-rain 8s linear infinite;
-  opacity: 0;
-  text-shadow: 0 0 8px #90CA03;
+/* Prevent body scroll when modal is open */
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
 }
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
