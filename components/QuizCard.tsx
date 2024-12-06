@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Fact } from '@/lib/facts';
+import { Fact } from '@/lib/fact';
 import { cn } from '@/lib/utils';
-import { cardVariants } from '@/lib/animations';
+import { cardVariants } from '@/lib/animation';
 import { Check, X } from 'lucide-react';
 
 interface QuizCardProps {

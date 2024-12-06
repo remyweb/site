@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PulseCircle } from "@/components/ui/pulse-circle";
 
 const heatPoints = [
   { x: 20, y: 30, temp: "Courant chaud" },
@@ -19,7 +18,6 @@ export function TemperatureRegulation() {
           style={{ left: `${point.x}%`, top: `${point.y}%` }}
           whileHover={{ scale: 1.1 }}
         >
-          <PulseCircle />
           <p className="absolute top-6 left-6 text-sm font-medium">{point.temp}</p>
         </motion.div>
       ))}

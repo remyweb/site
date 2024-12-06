@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Fact } from '@/lib/facts';
+import { Fact } from '@/lib/fact';
 import { cn } from '@/lib/utils';
 import { RotateCcw } from 'lucide-react';
 

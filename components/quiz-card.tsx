@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Fact } from '@/lib/facts';
+import { Fact } from '@/lib/fact';
 import { cn } from '@/lib/utils';
 
 interface QuizCardProps {

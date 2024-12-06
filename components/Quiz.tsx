@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Fact } from '@/lib/facts';
+import { Fact } from '@/lib/fact';
 import { QuizCard } from './QuizCard';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
