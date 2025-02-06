@@ -12,7 +12,6 @@ interface TeamMemberType {
 export function Team() {
   const [teamMembers, setTeamMembers] = useState<TeamMemberType[]>([
     { name: 'Rémy', role: 'Project Manager' },
-    { name: 'Paul', role: 'Technical Lead' },
     { name: 'Thomas', role: 'Supervisor', isThomas: true },
     { name: 'Jossua', role: 'Director' },
   ]);
