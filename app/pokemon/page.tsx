@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 interface Animal {
@@ -43,7 +43,7 @@ const animals: Animal[] = [
   },
 ];
 
-const AnimalPage = () => {
+const SearchComponent = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const [animal, setAnimal] = useState<Animal | null>(null);
@@ -79,6 +79,16 @@ const AnimalPage = () => {
       </div>
     </div>
     
+  );
+};
+
+const AnimalPage = () => {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <SearchComponent />
+      </Suspense>
+    </div>
   );
 };
 

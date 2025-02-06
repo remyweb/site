@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('http://localhost:3000'),
   title: 'SWS',
   description: 'Smart World Systems. Get ready for innovative solutions that transform your digital presence.',
   keywords: 'web development, nuit de l`\'info, technology, coming soon, launch',
